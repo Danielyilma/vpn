@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple VPN UI</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <div id="vpn-ui" class="vpn-container">
+        <h2>Simple VPN</h2>
+        <select id="country-select">
+            {% if connected_country %}
+                <option value="" selected>{{ connected_country }}</option>
+            {% endif %}
+            <option value="">Select country...</option>
+            {% for country in countries %}
+                <option value="{{ country[0] }}">{{ country[1] }}</option>
+            {% endfor %}
+            <!-- <option value="us">United States</option>
+            <option value="ca">Canada</option>
+            <option value="uk">United Kingdom</option>
+            <option value="de">Germany</option>
+            <option value="jp">Japan</option> -->
+        </select>
+        <div class="connection-status">
+            <span id="status-text">
+                {% if VPN_STATUS %}
+                    Connected
+                {% else %}
+                    Disconnected
+                {% endif %}
+            </span>
+            <label class="switch">
+                <input type="checkbox" id="vpn-toggle" {% if VPN_STATUS %}checked{% endif %}>
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div id="status-indicator" class="status-indicator"></div>
+    </div>
+    <script src="../static/script.js"></script>
+</body>
+</html>
+
