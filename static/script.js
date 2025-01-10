@@ -5,14 +5,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const countrySelect = document.getElementById('country-select');
 
     vpnToggle.addEventListener('change', function() {
-        const selectedCountry = countrySelect.value;
-        if (!selectedCountry) {
-            alert('Please select a country before connecting.');
-            vpnToggle.checked = false;
-            return;
-        }
-
         if (this.checked) {
+            const selectedCountry = countrySelect.value;
+            if (!selectedCountry) {
+                alert('Please select a country before connecting.');
+                vpnToggle.checked = false;
+                return;
+            }
             request("http://localhost:5000/connect", {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
