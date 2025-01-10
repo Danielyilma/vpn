@@ -80,6 +80,4 @@ Feel free to fork the repository, submit issues, or make pull requests to improv
 
 ---
 
-## Contact
-For any questions or feedback, please contact the repository maintainer.
 
